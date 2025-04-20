@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu FinanzApp - Gestiona tus metas y gastos</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Hero Section -->
+  <section class="text-center py-16 bg-gradient-to-r from-blue-500 to-indigo-600 text-white">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Gestiona tu futuro financiero hoy</h1>
+    <p class="text-lg md:text-xl mb-8">Registra tus gastos, establece metas y alcanza tus sueños</p>
+    <a href="#registro" class="bg-white text-indigo-600 font-bold py-3 px-6 rounded-full hover:bg-gray-200">Comienza Ahora</a>
+  </section>
+
+  <!-- Características actuales -->
+  <section class="py-16 px-6 md:px-20">
+    <h2 class="text-3xl font-bold text-center mb-12">Lo que puedes hacer ahora</h2>
+    <div class="grid gap-10 md:grid-cols-2">
+      <div class="bg-white p-8 rounded-xl shadow-md">
+        <h3 class="text-2xl font-semibold mb-4">Registro de gastos</h3>
+        <p>Apunta tus gastos diarios de manera rápida y sencilla.</p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-md">
+        <h3 class="text-2xl font-semibold mb-4">Creación de metas</h3>
+        <p>Define tus objetivos financieros y mide tu avance con gráficos de progreso.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Futuras características -->
+  <section class="py-16 px-6 md:px-20 bg-gray-100">
+    <h2 class="text-3xl font-bold text-center mb-12">Próximamente</h2>
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+      <div class="bg-white p-8 rounded-xl shadow-md">
+        <h3 class="text-xl font-semibold mb-4">Registro automático por SMS</h3>
+        <p>Detectaremos automáticamente tus gastos desde tus mensajes de texto.</p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-md">
+        <h3 class="text-xl font-semibold mb-4">Categorización inteligente</h3>
+        <p>Utilizaremos IA para clasificar tus gastos y darte una visión clara de tu dinero.</p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-md">
+        <h3 class="text-xl font-semibold mb-4">Recomendaciones personalizadas</h3>
+        <p>Te sugeriremos cambios de hábitos para mejorar tu ahorro.</p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-md">
+        <h3 class="text-xl font-semibold mb-4">Gamificación con recompensas</h3>
+        <p>Gana bonos en tus tiendas favoritas alcanzando tus metas financieras.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo de la app -->
+  <section class="py-16 px-6 md:px-20">
+    <h2 class="text-3xl font-bold text-center mb-12">Mira cómo funciona</h2>
+    <div class="flex justify-center">
+      <video controls class="rounded-xl shadow-lg max-w-full md:max-w-3xl">
+        <source src="tu-video.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de video.
+      </video>
+    </div>
+  </section>
+
+  <!-- Feedback Section -->
+  <section id="feedback" class="py-16 px-6 md:px-20 bg-white">
+    <h2 class="text-3xl font-bold text-center mb-8">Queremos tu Feedback</h2>
+    <form action="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec" method="POST" class="max-w-xl mx-auto space-y-4">
+      <input type="text" name="name" placeholder="Tu nombre" required class="w-full border border-gray-300 p-2 rounded" />
+      <input type="email" name="email" placeholder="Tu email" required class="w-full border border-gray-300 p-2 rounded" />
+      <textarea name="feedback" rows="5" placeholder="Tu opinión" required class="w-full border border-gray-300 p-2 rounded"></textarea>
+      <button type="submit" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded hover:bg-indigo-700">Enviar Feedback</button>
+      <p id="responseMessage" class="text-center text-green-600 mt-4 hidden">¡Gracias por tu feedback!</p>
+    </form>
+    <script>
+      const form = document.querySelector('form');
+      const responseMessage = document.getElementById('responseMessage');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form)
+        }).then(res => {
+          if (res.ok) {
+            responseMessage.classList.remove('hidden');
+            form.reset();
+          } else {
+            alert('Hubo un error al enviar. Por favor, intenta de nuevo.');
+          }
+        });
+      });
+    </script>
+  </section>
+
+  <!-- Call to Action -->
+  <section id="registro" class="text-center py-16 bg-indigo-600 text-white">
+    <h2 class="text-3xl font-bold mb-6">¿Listo para tomar el control de tus finanzas?</h2>
+    <a href="#" class="bg-white text-indigo-600 font-bold py-3 px-6 rounded-full hover:bg-gray-200">Regístrate Gratis</a>
+  </section>
+
+  <footer class="py-8 text-center text-gray-500 text-sm">
+    &copy; 2025 PocketTrack. Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>
