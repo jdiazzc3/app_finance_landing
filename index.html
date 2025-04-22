@@ -77,18 +77,31 @@
     <script>
       const form = document.querySelector('form');
       const responseMessage = document.getElementById('responseMessage');
+
       form.addEventListener('submit', e => {
         e.preventDefault();
+
         fetch(form.action, {
           method: 'POST',
           body: new FormData(form)
-        }).then(res => {
+        })
+        .then(res => {
           if (res.ok) {
-            responseMessage.classList.remove('hidden');
-            form.reset();
+            responseMessage.textContent = '¡Gracias por tu feedback!'; // Cambia el texto del mensaje
+            responseMessage.classList.remove('hidden'); // Muestra el mensaje
+            form.reset(); // Borra los valores de los inputs
+
+            // Oculta el mensaje después de unos segundos (opcional)
+            setTimeout(() => {
+              responseMessage.classList.add('hidden');
+            }, 3000); // Ocultar después de 3 segundos (3000 milisegundos)
           } else {
             alert('Hubo un error al enviar. Por favor, intenta de nuevo.');
           }
+        })
+        .catch(error => {
+          console.error('Error al enviar el formulario:', error);
+          alert('Hubo un error inesperado. Por favor, intenta de nuevo más tarde.');
         });
       });
     </script>
